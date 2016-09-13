@@ -24,7 +24,7 @@
 					<c:when test="${empty entry.status}">
 						<td>${entry.task }</td>
 						<td>${entry.date }</td>
-						<td align="center"><a href="DoneTask?id=${entry.id }">X</a></td>
+						<td align="center"><a href="DoneTask?id=${entry.id }"><img src="<%=request.getContextPath()%>/IMAGE/delete.png"/></a></td>
 					</c:when>
 					<c:otherwise>
 						<td><strike>${entry.task }</strike></td>
