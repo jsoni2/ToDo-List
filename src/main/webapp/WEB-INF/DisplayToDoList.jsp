@@ -9,44 +9,50 @@
 <title>TO-DO List</title>
 </head>
 <body>
-<p>To-Do List</p>
-<form action="AddTask" method="post">
+	<p>To-Do List</p>
+	<form action="AddTask" method="post">
+		<table border="1">
+			<tr>
+				<th>Task</th>
+				<th>Date</th>
+				<th>Status</th>
+			</tr>
+			<c:forEach items="${entries }" var="entry">
+				<tr>
+					<c:choose>
+						<c:when test="${empty entry.status}">
+							<td>${entry.task }</td>
+							<td>${entry.date }</td>
+							<td align="center"><a href="DoneTask?id=${entry.id }">X</a></td>
+						</c:when>
+					</c:choose>
+				</tr>
+			</c:forEach>
+			<tr>
+				<td><input type="text" name="task" required /></td>
+				<td colspan="2" align="center"><input type="submit" name="test"
+					value="Add" /><br /></td>
+			</tr>
+		</table>
+	</form>
+	<p>Done List</p>
 	<table border="1">
 		<tr>
 			<th>Task</th>
 			<th>Date</th>
 			<th>Status</th>
 		</tr>
-		<c:forEach items="${entries }" var="entry">
+		<c:forEach items="${entries }" var="entry1">
 			<tr>
-
 				<c:choose>
-					<c:when test="${empty entry.status}">
-						<td>${entry.task }</td>
-						<td>${entry.date }</td>
-						<td align="center"><a href="DoneTask?id=${entry.id }">X</a></td>
+					<c:when test="${not empty entry1.status}">
+						<td>${entry1.task }</td>
+						<td>${entry1.date }</td>
+						<td>${entry1.status }</td>
 					</c:when>
-					<c:otherwise>
-						<td><strike>${entry.task }</strike></td>
-						<td><strike>${entry.date }</strike></td>
-						<td></td>
-					</c:otherwise>
 				</c:choose>
-
-
-
 			</tr>
-
 		</c:forEach>
-		<tr>
-				
-				<td><input type="text" name="task" required /></td>
-				<td colspan="2" align="center"><input type="submit" name="test" value="Add" /><br /></td>
-			</tr>
 	</table>
-	
-	</form>
-	
 </body>
-
 </html>
