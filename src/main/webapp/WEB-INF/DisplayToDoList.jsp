@@ -14,7 +14,8 @@
 	<table border="1">
 		<tr>
 			<th>Task</th>
-			<th>Date</th>
+			<th>Start-Date</th>
+			<th>Date of Completion</th>
 			<th>Status</th>
 		</tr>
 		<c:forEach items="${entries }" var="entry">
@@ -24,16 +25,16 @@
 					<c:when test="${empty entry.status}">
 						<td>${entry.task }</td>
 						<td>${entry.date }</td>
+						<td></td>
 						<td align="center"><a href="DoneTask?id=${entry.id }">X</a></td>
 					</c:when>
 					<c:otherwise>
 						<td><strike>${entry.task }</strike></td>
 						<td><strike>${entry.date }</strike></td>
+						<td>${entry.date_completed }</td>
 						<td></td>
 					</c:otherwise>
 				</c:choose>
-
-
 
 			</tr>
 
@@ -44,6 +45,8 @@
 				<td colspan="2" align="center"><input type="submit" name="test" value="Add" /><br /></td>
 			</tr>
 	</table>
+	
+	
 	
 	</form>
 	
