@@ -14,6 +14,7 @@
 	<p>To-Do List</p>
 	<form action="AddTask" method="post">
 		<table border="1">
+
 			<tr>
 				<th>Task</th>
 				<th>Date</th>
@@ -43,6 +44,7 @@
 			<th>Task</th>
 			<th>Date</th>
 			<th>Status</th>
+			<th>Date of Completion</th>
 		</tr>
 		<c:forEach items="${entries }" var="entry1">
 			<tr>
@@ -51,11 +53,13 @@
 						<td>${entry1.task }</td>
 						<td>${entry1.date }</td>
 						<td>${entry1.status }</td>
+						<td>${entry1.date_completed }</td>
 					</c:when>
 				</c:choose>
 			</tr>
 		</c:forEach>
 	</table>
+
 </body>
 
 

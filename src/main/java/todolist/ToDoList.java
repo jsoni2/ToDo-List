@@ -66,7 +66,7 @@ public class ToDoList extends HttpServlet {
 
 			while (rs.next()) {
 				Model_ToDoList entry = new Model_ToDoList(rs.getInt("id"), rs.getString("tasks_desc"),
-						rs.getString("date_added"), rs.getString("task_status"));
+						rs.getString("date_added"), rs.getString("task_status"), rs.getString("date_completed"));
 
 				entries.add(entry);
 			}
