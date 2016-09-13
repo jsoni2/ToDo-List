@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -55,18 +57,20 @@ public class DoneTask extends HttpServlet {
 
 		request.setAttribute("selectedValue", Cstatus);
 		Connection c = null;
+		Date date = new Date();
+		String Mdate = new SimpleDateFormat("yyyy-MM-dd").format(date);
 		try {
 			String url = "jdbc:mysql://localhost:3306/todolist";
 			String username = "root";
 			String password = "abcd";
-			String sql = "update tasks  set task_status=? where id=?";
+			String sql = "update tasks  set task_status=? , date_completed=? where id=?";
 			c = DriverManager.getConnection(url, username, password);
 
 			PreparedStatement pstmt = c.prepareStatement(sql);
 
 			pstmt.setString(1, Cstatus);
-
-			pstmt.setInt(2, id);
+			pstmt.setString(2, Mdate);
+			pstmt.setInt(3, id);
 			pstmt.executeUpdate();
 			pstmt.close();
 
