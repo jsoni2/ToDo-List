@@ -13,7 +13,7 @@
 <body>
 	<p>To-Do List</p>
 	<form action="AddTask" method="post">
-		<table border="1">
+		<table>
 
 			<tr>
 				<th>Task</th>
@@ -39,7 +39,7 @@
 		</table>
 	</form>
 	<p>Done List</p>
-	<table border="1">
+	<table>
 		<tr>
 			<th>Task</th>
 			<th>Date</th>
