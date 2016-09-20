@@ -68,6 +68,5 @@ public class Model_ToDoList {
 	public void setDate_completed(String date_completed) {
 		this.date_completed = date_completed;
 	}
-	
 
 }

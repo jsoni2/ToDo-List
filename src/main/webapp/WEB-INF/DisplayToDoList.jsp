@@ -7,54 +7,56 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <link href="<c:url value="/css/table.css"/>" rel="stylesheet">
-<title>TO-DO List</title>
+	<title>TO-DO List</title>
 </head>
 <body>
-<p>To-Do List</p>
-<form action="AddTask" method="post">
-<table>
-<tr>
-<th>Task</th>
-<th>Date</th>
-<th>Status</th>
-</tr>
-<c:forEach items="${entries }" var="entry">
-<tr>
-<c:choose>
-<c:when test="${empty entry.status}">
-<td>${entry.task }</td>
-<td>${entry.date }</td>
-<td align="center"><a href="DoneTask?id=${entry.id }"><img src="<%=request.getContextPath()%>/IMAGE/delete.png"/></a></td>
-</c:when>
-</c:choose>
-</tr>
-</c:forEach>
-<tr>
-<td><input type="text" name="task" required /></td>
-<td colspan="2" align="center"><input type="submit" name="test" value="Add" /><br /></td>
-</tr>
-</table>
-</form>
-<p>Done List</p>
-<table>
-<tr>
-<th>Task</th>
-<th>Date</th>
-<th>Status</th>
-<th>Date of Completion</th>
-</tr>
-<c:forEach items="${entries }" var="entry1">
-<tr>
-<c:choose>
-<c:when test="${not empty entry1.status}">
-<td>${entry1.task }</td>
-<td>${entry1.date }</td>
-<td>${entry1.status }</td>
-<td>${entry1.date_completed }</td>
-</c:when>
-</c:choose>
-</tr>
-</c:forEach>
-</table>
+	<p>To-Do List</p>
+	<form action="AddTask" method="post">
+		<table>
+			<tr>
+				<th>Task</th>
+				<th>Date</th>
+				<th>Status</th>
+			</tr>
+			<c:forEach items="${entries }" var="entry">
+				<tr>
+					<c:choose>
+						<c:when test="${empty entry.status}">
+							<td>${entry.task }</td>
+							<td>${entry.date }</td>
+							<td align="center"><a href="DoneTask?id=${entry.id }"><img
+									src="<%=request.getContextPath()%>/IMAGE/delete.png" /></a></td>
+						</c:when>
+					</c:choose>
+				</tr>
+			</c:forEach>
+			<tr>
+				<td><input type="text" name="task" required /></td>
+				<td colspan="2" align="center"><input type="submit" name="test"
+					value="Add" /><br /></td>
+			</tr>
+		</table>
+	</form>
+	<p>Done List</p>
+	<table>
+		<tr>
+			<th>Task</th>
+			<th>Date</th>
+			<th>Status</th>
+			<th>Date of Completion</th>
+		</tr>
+		<c:forEach items="${entries }" var="entry1">
+			<tr>
+				<c:choose>
+					<c:when test="${not empty entry1.status}">
+						<td>${entry1.task }</td>
+						<td>${entry1.date }</td>
+						<td>${entry1.status }</td>
+						<td>${entry1.date_completed }</td>
+					</c:when>
+				</c:choose>
+			</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>
