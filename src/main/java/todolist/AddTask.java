@@ -52,15 +52,17 @@ public class AddTask extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		request.getRequestDispatcher("/WEB-INF/AddTask.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	/* (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.
+	 * HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -74,14 +76,14 @@ public class AddTask extends HttpServlet {
 			String Mstatus = null;
 			;
 			Connection c = null;
-			/*CREATE SCHEMA `todolist` ;
-
-			CREATE TABLE `todolist`.`tasks` (
-			  `id` INT NOT NULL AUTO_INCREMENT,
-			  `tasks_desc` VARCHAR(45) NULL,
-			  `date_added` VARCHAR(45) NULL,
-			  `task_status` VARCHAR(45) NULL,
-			  PRIMARY KEY (`id`));*/
+			/*
+			 * CREATE SCHEMA `todolist` ;
+			 * 
+			 * CREATE TABLE `todolist`.`tasks` ( `id` INT NOT NULL
+			 * AUTO_INCREMENT, `tasks_desc` VARCHAR(45) NULL, `date_added`
+			 * VARCHAR(45) NULL, `task_status` VARCHAR(45) NULL, PRIMARY KEY
+			 * (`id`));
+			 */
 
 			try {
 				String url = "jdbc:mysql://localhost:3306/todolist";
